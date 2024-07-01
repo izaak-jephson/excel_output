@@ -13,5 +13,6 @@
 *.parquet
 *.png
 *.db
+*.R
 outputs/
 inputs/
