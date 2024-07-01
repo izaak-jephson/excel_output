@@ -4,7 +4,6 @@
 .Ruserdata
 
 # Ignore input and output files
-*.html
 *.xlsx
 *.xlsm
 *.csv
@@ -13,6 +12,26 @@
 *.parquet
 *.png
 *.db
-*.R
 outputs/
 inputs/
+
+# 'data' folder #
+data/
+
+# Common text files that may contain data #
+*.[cC][sS][vV]
+*.[tT][xX][tT]
+
+# Excel files #
+*.[xX][lL][sS][xXmMtT]
+
+# SPSS formats #
+*.[sS][aA][vV]
+*.[zZ][sS][aA][vV]
+
+# R data files #
+*.[rR][dD][aA][tT][aA]
+*.[rR][dD][sS]
+
+# MacOS folder attributes files #
+.DS_Store
