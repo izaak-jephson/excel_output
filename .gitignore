@@ -1,0 +1,17 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# Ignore input and output files
+*.html
+*.xlsx
+*.xlsm
+*.csv
+*.txt
+*.docx
+*.parquet
+*.png
+*.db
+outputs/
+inputs/
