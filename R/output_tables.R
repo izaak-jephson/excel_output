@@ -199,9 +199,9 @@ format_rows <- function(wb, sheet_name, table, table_row, sheet_row, start_col, 
 # Add data tables to existing worksheet
 add_data_tables <- function(wb, sheet_name, sheet_title, tables, header_rows) {
   tables %>%
-    select(table, start_row, end_row, table_title) %>%
-    pmap(function(table, start_row, end_row, table_title) {
-      add_data_table(wb, sheet_name, sheet_title, table, start_row, end_row, header_rows)
+    select(table, start_row, end_row, table_title, table_name) %>%
+    pmap(function(table, start_row, end_row, table_title, table_name) {
+      add_data_table(wb, sheet_name, sheet_title, table, start_row, end_row, header_rows, table_name)
       if(nrow(tables) > 1){ 
         writeData(wb, sheet_name,
                   x = table_title,
@@ -320,7 +320,7 @@ add_data_sheet <- function(wb, sheet_name, sheet_title, sheet_tables, notes_list
   return(wb)
 }
 
-add_data_table <- function(wb, sheet_name, sheet_title, table, start_row, end_row, header_rows) {
+add_data_table <- function(wb, sheet_name, sheet_title, table, start_row, end_row, header_rows, table_name) {
   # Format data table
   addStyle(wb,
            sheet_name,
@@ -333,6 +333,7 @@ add_data_table <- function(wb, sheet_name, sheet_title, table, start_row, end_ro
   # Add data table
   writeDataTable(wb, sheet_name,
                  startRow = header_rows + start_row,
+                 tableName = str_replace_all(table_name, " ","_"),
                  x = table,
                  colNames = TRUE,
                  rowNames = FALSE,

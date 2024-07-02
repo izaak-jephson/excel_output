@@ -5,7 +5,7 @@ library(openxlsx)
 library(lubridate)
 
 # Set publication date manually
-publication_date <- dmy("16 April 2024")
+publication_date <- dmy("18 June 2024")
 
 source(here("R","read_meta.R"))
 source(here("R","arrange_tables.R"))
