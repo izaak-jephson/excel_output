@@ -338,7 +338,7 @@ add_data_table <- function(wb, sheet_name, sheet_title, table, start_row, end_ro
                  colNames = TRUE,
                  rowNames = FALSE,
                  keepNA = TRUE,
-                 na.string = "[c]",
+                 na.string = "n/a",
                  tableStyle = "TableStyleLight1", headerStyle = createStyle(wrapText = TRUE),
                  stack = TRUE,
                  withFilter = openxlsx_getOp("withFilter", FALSE)
@@ -371,7 +371,7 @@ add_data_table <- function(wb, sheet_name, sheet_title, table, start_row, end_ro
   )
   
   negative_to_c <- function (wb, sheet_name, table, column, row, start_row, end_row){
-    if (table[[column]][[row]] == -1){
+    if (table[[column]][[row]] == -1 & (!is.na(table[[column]][[row]]))){
       writeData(wb,
                 sheet_name,
                 x = "[c]",
